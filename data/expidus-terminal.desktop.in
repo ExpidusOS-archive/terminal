@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ExpidusOS Terminal
+Version=@VERSION@
+Type=Application
+Exec=@BINDIR@/expidus-terminal
+StartupNotify=true
+Comment=ExpidusOS Terminal Emulator
+GenericName=Terminal
+X-GNOME-FullName=ExpidusOS Terminal Emulator

@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1662153030,
-        "narHash": "sha256-eyVncEy2M2rti6oHu2OyA5QCTNjO0OGBaAB/lKh/fXM=",
+        "lastModified": 1662155198,
+        "narHash": "sha256-wx5FUt2XYVN7x3+10yN/gkg8mpCchy875mvIJ5+JKcU=",
         "owner": "ExpidusOS",
         "repo": "libtokyo",
-        "rev": "df387db9cf05efc677d7fe445aec33df20aec68e",
+        "rev": "b47eb54d0e546f7f6c5c55915fb928011c9f260f",
         "type": "github"
       },
       "original": {
