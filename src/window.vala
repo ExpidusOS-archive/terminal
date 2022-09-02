@@ -15,6 +15,7 @@ namespace ExpidusTerminal {
       this.terminal.set_allow_hyperlink(true);
       this.terminal.set_input_enabled(true);
       this.terminal.set_enable_sixel(true);
+      this.terminal.set_clear_background(true);
       this.get_box().pack_end(this.terminal, true, true, 0);
 
       this.terminal.notify["window-title"].connect(() => {
@@ -44,20 +45,26 @@ namespace ExpidusTerminal {
     }
 
     private void update_stylesheet() {
-      Gdk.RGBA background_color = { 0, 0, 0, 1.0 };
+      Gdk.RGBA background_color = { 0.0, 0.0, 0.0, 1.0 };
+      Gdk.RGBA foreground_color = { 1.0, 1.0, 1.0, 1.0 }; 
       
       switch (this.style_manager.color_scheme) {
         case TokyoGtk.ColorScheme.NIGHT:
-          background_color.parse("#414868");
+          background_color.parse("#1a1b26");
+          foreground_color.parse("#a9b1d6");
           break;
         case TokyoGtk.ColorScheme.LIGHT:
-          background_color.parse("#0f0f14");
           break;
         case TokyoGtk.ColorScheme.STORM:
+          background_color.parse("#24283b");
+          foreground_color.parse("#a9b1d6");
           break;
       }
 
+      background_color.alpha = 0.8;
+
       this.terminal.set_color_background(background_color);
+      this.terminal.set_color_foreground(foreground_color);
     }
 
     private void update_title() {
