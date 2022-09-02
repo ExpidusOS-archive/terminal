@@ -41,7 +41,9 @@ build_conf = configure_file(input: 'src/build.vala.in', output: 'build.vala',
 	configuration: conf_data)
 
 configure_file(input: 'data/expidus-terminal.desktop.in', output: 'expidus-terminal.desktop',
-  configuration: conf_data)
+  configuration: conf_data,
+  install: true,
+  install_dir: join_paths(datadir, 'applications'))
 
 executable('expidus-terminal', ['src/application.vala', 'src/window.vala'],
   dependencies: [libtokyo, handy, vte],

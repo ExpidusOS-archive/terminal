@@ -16,6 +16,8 @@ namespace ExpidusTerminal {
       this.terminal.set_input_enabled(true);
       this.terminal.set_enable_sixel(true);
       this.terminal.set_clear_background(true);
+      this.terminal.set_scroll_on_keystroke(true);
+      this.terminal.set_scroll_on_output(true);
       this.get_box().pack_end(this.terminal, true, true, 0);
 
       this.terminal.notify["window-title"].connect(() => {
@@ -33,10 +35,11 @@ namespace ExpidusTerminal {
       this.update_title();
       this.update_stylesheet();
 
-      this.terminal.spawn_async(Vte.PtyFlags.DEFAULT, null, { "/bin/sh" }, GLib.Environ.@get(), GLib.SpawnFlags.SEARCH_PATH_FROM_ENVP, null, 0, null, (term, pid, error) => {
+      this.terminal.spawn_async(Vte.PtyFlags.DEFAULT, null, { "sh" }, GLib.Environ.@get(), GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.FILE_AND_ARGV_ZERO, null, 0, null, (term, pid, error) => {
         if (error != null) this.terminal.feed("Failed to spawn shell: %s:%d: %s\r\n".printf(error.domain.to_string(), error.code, error.message).data);
 
-        this.terminal.feed("Process %d has exited, press any key to exit".printf(pid).data);
+        this.terminal.feed("Process %d has exited\r\n".printf(pid).data);
+        this.terminal.feed("Press any key to exit\r\n".data);
 
         this.terminal.commit.connect(() => {
           this.application.remove_window(this);
@@ -54,6 +57,8 @@ namespace ExpidusTerminal {
           foreground_color.parse("#a9b1d6");
           break;
         case TokyoGtk.ColorScheme.LIGHT:
+          background_color.parse("#d5d6db");
+          foreground_color.parse("#343b58");
           break;
         case TokyoGtk.ColorScheme.STORM:
           background_color.parse("#24283b");

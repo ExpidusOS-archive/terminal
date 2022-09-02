@@ -1,0 +1,9 @@
+app-id: com.expidus.Terminal
+runtime: org.gnome.Platform
+runtime-version: '3.36'
+sdk: org.gnome.Sdk
+command: expidus-terminal
+
+finish-args:
+  - --socket=x11
+  - --socket=wayland
