@@ -1,0 +1,2 @@
+# terminal
+The ExpidusOS Terminal
