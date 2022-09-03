@@ -60,7 +60,7 @@ namespace ExpidusTerminal {
       var styling = this.get_style_context();
 
       styling.lookup_color("window_bg_color", out palette[0]);
-      palette[0].alpha = 0.8;
+      palette[0].alpha = 0.9;
 
       styling.lookup_color("red_1", out palette[1]);
       styling.lookup_color("green_1", out palette[2]);
