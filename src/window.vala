@@ -1,15 +1,12 @@
 namespace ExpidusTerminal {
   public class Window : TokyoGtk.ApplicationWindow {
     public Vte.Terminal terminal;
-    private TokyoGtk.StyleManager style_manager;
 
     public Window(Gtk.Application app) {
       Object(application: app);
     }
 
     construct {
-      this.style_manager = TokyoGtk.StyleManager.get_for_display(this.get_display());
-
       this.terminal = new Vte.Terminal();
       this.terminal.set_audible_bell(true);
       this.terminal.set_allow_hyperlink(true);
@@ -48,28 +45,22 @@ namespace ExpidusTerminal {
     }
 
     private void update_stylesheet() {
-      Gdk.RGBA background_color = { 0.0, 0.0, 0.0, 1.0 };
-      Gdk.RGBA foreground_color = { 1.0, 1.0, 1.0, 1.0 }; 
-      
-      switch (this.style_manager.color_scheme) {
-        case TokyoGtk.ColorScheme.NIGHT:
-          background_color.parse("#1a1b26");
-          foreground_color.parse("#a9b1d6");
-          break;
-        case TokyoGtk.ColorScheme.LIGHT:
-          background_color.parse("#d5d6db");
-          foreground_color.parse("#343b58");
-          break;
-        case TokyoGtk.ColorScheme.STORM:
-          background_color.parse("#24283b");
-          foreground_color.parse("#a9b1d6");
-          break;
-      }
+      Gdk.RGBA palette[8] = {};
 
-      background_color.alpha = 0.8;
+      var styling = this.get_style_context();
 
-      this.terminal.set_color_background(background_color);
-      this.terminal.set_color_foreground(foreground_color);
+      styling.lookup_color("window_bg_color", out palette[0]);
+      palette[0].alpha = 0.8;
+
+      styling.lookup_color("yellow_1", out palette[1]);
+      styling.lookup_color("blue_1", out palette[2]);
+      styling.lookup_color("brown_1", out palette[3]);
+      styling.lookup_color("blue_5", out palette[4]);
+      styling.lookup_color("brown_5", out palette[5]);
+      styling.lookup_color("blue_2", out palette[6]);
+      styling.lookup_color("window_fg_color", out palette[7]);
+
+      this.terminal.set_colors(palette[7], palette[0], palette);
     }
 
     private void update_title() {
