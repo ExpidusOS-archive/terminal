@@ -37,7 +37,7 @@ namespace ExpidusTerminal {
         this.handle_finish();
       });
 
-      this.terminal.spawn_async(Vte.PtyFlags.DEFAULT, null, { "sh" }, { "TERM=expidus" }, GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.FILE_AND_ARGV_ZERO, null, -1, null, (term, pid, error) => {
+      this.terminal.spawn_async(Vte.PtyFlags.DEFAULT, null, { "sh" }, { "TERM=vte" }, GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.FILE_AND_ARGV_ZERO, null, -1, null, (term, pid, error) => {
         if (error != null) {
           this.terminal.feed("Failed to spawn shell: %s:%d: %s\r\n".printf(error.domain.to_string(), error.code, error.message).data);
           this.handle_finish();
