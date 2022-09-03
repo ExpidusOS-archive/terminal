@@ -1,6 +1,7 @@
 namespace ExpidusTerminal {
   public class Window : TokyoGtk.ApplicationWindow {
     public Vte.Terminal terminal;
+    public GLib.Pid shell_pid;
 
     public Window(Gtk.Application app) {
       Object(application: app);
@@ -32,17 +33,24 @@ namespace ExpidusTerminal {
       this.update_title();
       this.update_stylesheet();
 
+      this.terminal.child_exited.connect(() => {
+        this.handle_finish();
+      });
+
       this.terminal.spawn_async(Vte.PtyFlags.DEFAULT, null, { "sh" }, { "TERM=expidus" }, GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.FILE_AND_ARGV_ZERO, null, -1, null, (term, pid, error) => {
         if (error != null) {
           this.terminal.feed("Failed to spawn shell: %s:%d: %s\r\n".printf(error.domain.to_string(), error.code, error.message).data);
+          this.handle_finish();
         }
+      });
+    }
 
-        this.terminal.feed("Process %d has exited\r\n".printf(pid).data);
-        this.terminal.feed("Press any key to exit\r\n".data);
+    private void handle_finish() {
+      this.terminal.feed("Process has exited\r\n".data);
+      this.terminal.feed("Press any key to exit\r\n".data);
 
-        this.terminal.commit.connect(() => {
-          this.application.remove_window(this);
-        });
+      this.terminal.commit.connect(() => {
+        this.application.remove_window(this);
       });
     }
 
