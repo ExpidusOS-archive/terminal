@@ -2,7 +2,7 @@
   description = "The terminal for ExpidusOS";
 
   inputs.libtokyo = {
-    url = path:./subprojects/libtokyo;
+    url = path:subprojects/libtokyo;
     inputs.nixpkgs.follows = "nixpkgs";
   };
 

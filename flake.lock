@@ -8,17 +8,14 @@
         "ntk": "ntk"
       },
       "locked": {
-        "lastModified": 1664474625,
-        "narHash": "sha256-wll5p4y8bXQSD8Ag81g4mPHXfkya1DrncGfKqrgH1Dw=",
-        "owner": "ExpidusOS",
-        "repo": "libtokyo",
-        "rev": "79533c580ebcf45c3fd127369ce0b65538e3510d",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-FeTGQUnO7lk9vMyL4+wWKkkj7rZYcHZu6YqGNgBwGos=",
+        "path": "subprojects/libtokyo",
+        "type": "path"
       },
       "original": {
-        "owner": "ExpidusOS",
-        "repo": "libtokyo",
-        "type": "github"
+        "path": "subprojects/libtokyo",
+        "type": "path"
       }
     },
     "nixpkgs": {
