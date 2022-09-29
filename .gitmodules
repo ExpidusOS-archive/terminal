@@ -1,0 +1,3 @@
+[submodule "subprojects/libtokyo"]
+	path = subprojects/libtokyo
+	url = https://github.com/ExpidusOS/libtokyo

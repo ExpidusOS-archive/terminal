@@ -1,5 +1,6 @@
 # subproject directories
 /subprojects/*
+!/subprojects/libtokyo
 !/subprojects/*.wrap
 
 # Meson Directories
