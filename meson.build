@@ -21,7 +21,12 @@ if git.found()
 	endif
 endif
 
-libtokyo = dependency('tokyo-gtk3', required: true)
+libtokyo = dependency('tokyo-gtk3', required: false)
+if not libtokyo.found()
+  libtokyo_subproject = subproject('libtokyo')
+  libtokyo = libtokyo_subproject.get_variable('libtokyo_gtk3_dep')
+endif
+
 handy = dependency('libhandy-1', required: false, version: '>= 1.6.0')
 vte = dependency('vte-2.91', required: true, version: '>= 0.68.0')
 
