@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "expidus-sdk": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1665171861,
+        "narHash": "sha256-lwMoZQuhbiVaJr+4uP4qF/ZYMjpnO7VWhY+035TlBVE=",
+        "owner": "ExpidusOS",
+        "repo": "sdk",
+        "rev": "1641daeca43f0355987bf688fa6fe2d4ac761f77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ExpidusOS",
+        "repo": "sdk",
+        "type": "github"
+      }
+    },
     "libtokyo": {
       "inputs": {
         "nixpkgs": [
@@ -52,6 +72,7 @@
     },
     "root": {
       "inputs": {
+        "expidus-sdk": "expidus-sdk",
         "libtokyo": "libtokyo",
         "nixpkgs": "nixpkgs"
       }

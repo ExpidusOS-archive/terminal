@@ -6,7 +6,12 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, libtokyo, nixpkgs, ... }:
+  inputs.expidus-sdk = {
+    url = github:ExpidusOS/sdk;
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { self, libtokyo, nixpkgs, expidus-sdk, ... }:
     let
       supportedSystems = builtins.attrNames libtokyo.packages;
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -17,6 +22,7 @@
         let
           pkgs = nixpkgsFor.${system};
           tokyo = libtokyo.packages.${system}.gtk3;
+          expidus-sdk-pkg = expidus-sdk.packages.${system}.default;
         in
         {
           default = pkgs.stdenv.mkDerivation rec {
@@ -24,7 +30,7 @@
             src = self;
             outputs = [ "out" ];
 
-            nativeBuildInputs = with pkgs; [ meson ninja pkg-config vala glib ];
+            nativeBuildInputs = with pkgs; [ meson ninja pkg-config vala glib expidus-sdk-pkg ];
             buildInputs = with pkgs; [ libhandy tokyo vte ];
 
             enableParallelBuilding = true;
@@ -41,10 +47,11 @@
         let
           pkgs = nixpkgsFor.${system};
           tokyo = libtokyo.packages.${system}.gtk3;
+          expidus-sdk-pkg = expidus-sdk.devShells.${system}.default;
         in
         {
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [
+            packages = with pkgs; [
               tokyo
               meson
               ninja
@@ -53,6 +60,7 @@
               gtk3
               vte
               libhandy
+              expidus-sdk-pkg
             ];
           };
         });
