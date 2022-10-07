@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1665171861,
-        "narHash": "sha256-lwMoZQuhbiVaJr+4uP4qF/ZYMjpnO7VWhY+035TlBVE=",
+        "lastModified": 1665174963,
+        "narHash": "sha256-t006Kb6cpx+15xKyMBS8K3ngDSW8TQlc4jmXxyvkM0E=",
         "owner": "ExpidusOS",
         "repo": "sdk",
-        "rev": "1641daeca43f0355987bf688fa6fe2d4ac761f77",
+        "rev": "151cc31c30c5b49ad8c863eb850059767b68c2b9",
         "type": "github"
       },
       "original": {
@@ -30,21 +30,21 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-FeTGQUnO7lk9vMyL4+wWKkkj7rZYcHZu6YqGNgBwGos=",
-        "path": "subprojects/libtokyo",
+        "path": "./subprojects/libtokyo",
         "type": "path"
       },
       "original": {
-        "path": "subprojects/libtokyo",
+        "path": "./subprojects/libtokyo",
         "type": "path"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1664432844,
-        "narHash": "sha256-/7YydlQfYeSN//5Q/nceSDeeBa5ZuO5c8wv9IULbOPg=",
+        "lastModified": 1665087388,
+        "narHash": "sha256-FZFPuW9NWHJteATOf79rZfwfRn5fE0wi9kRzvGfDHPA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c4d0026e7346ad2006c2ba730d5a712c18195aab",
+        "rev": "95fda953f6db2e9496d2682c4fc7b82f959878f7",
         "type": "github"
       },
       "original": {

@@ -2,7 +2,7 @@
   description = "The terminal for ExpidusOS";
 
   inputs.libtokyo = {
-    url = path:subprojects/libtokyo;
+    url = path:./subprojects/libtokyo;
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -47,7 +47,7 @@
         let
           pkgs = nixpkgsFor.${system};
           tokyo = libtokyo.packages.${system}.gtk3;
-          expidus-sdk-pkg = expidus-sdk.devShells.${system}.default;
+          expidus-sdk-pkg = expidus-sdk.packages.${system}.default;
         in
         {
           default = pkgs.mkShell {
