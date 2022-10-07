@@ -30,7 +30,8 @@ endif
 handy = dependency('libhandy-1', required: false, version: '>= 1.6.0')
 vte = dependency('vte-2.91', required: true, version: '>= 0.68.0')
 
-uncrustify = find_program('uncrustify', required: false)
+sdk = dependency('expidus-sdk', native: false, required: false, include_type: 'system', method: 'pkg-config')
+uncrustify = find_program('uncrustify', sdk.get_variable('bindir'), required: sdk.found())
 
 conf_data = configuration_data()
 conf_data.set('PREFIX', prefix)
