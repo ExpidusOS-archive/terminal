@@ -20,16 +20,39 @@
         "type": "github"
       }
     },
+    "expidus-sdk_2": {
+      "inputs": {
+        "nixpkgs": [
+          "libtokyo",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1665859560,
+        "narHash": "sha256-rr3TWYhWgX58osv+MCynVO0bRKoLzYCpWlKvJRxcXSU=",
+        "owner": "ExpidusOS",
+        "repo": "sdk",
+        "rev": "d2bb778f59088e7d04dfa63240cb0c34e59327e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ExpidusOS",
+        "repo": "sdk",
+        "type": "github"
+      }
+    },
     "libtokyo": {
       "inputs": {
+        "expidus-sdk": "expidus-sdk_2",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "ntk": "ntk"
+        "ntk": "ntk",
+        "vadi": "vadi"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-FeTGQUnO7lk9vMyL4+wWKkkj7rZYcHZu6YqGNgBwGos=",
+        "narHash": "sha256-nbIa5k7ecQ7/JY+RWcyHBJIxfqv+FroC57jhcKKMfaw=",
         "path": "./subprojects/libtokyo",
         "type": "path"
       },
@@ -75,6 +98,28 @@
         "expidus-sdk": "expidus-sdk",
         "libtokyo": "libtokyo",
         "nixpkgs": "nixpkgs"
+      }
+    },
+    "vadi": {
+      "inputs": {
+        "nixpkgs": [
+          "libtokyo",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1665765377,
+        "narHash": "sha256-F/+A23n3MZGk0/Uf4yWqn7nNNiFJTt9FIplGcYn4ajo=",
+        "owner": "ExpidusOS",
+        "repo": "Vadi",
+        "rev": "fbe39ef910dfdca2fddcccee115738885cd595e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ExpidusOS",
+        "ref": "feat/nix",
+        "repo": "Vadi",
+        "type": "github"
       }
     }
   },
