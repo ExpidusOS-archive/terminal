@@ -22,11 +22,7 @@ namespace ExpidusTerminal {
         this.update_title();
       });
 
-      this.style_manager.hdy.notify["dark"].connect(() => {
-        this.update_stylesheet();
-      });
-
-      this.style_manager.hdy.notify["high-contrast"].connect(() => {
+      this.style_manager.notify["color-scheme"].connect(() => {
         this.update_stylesheet();
       });
 
