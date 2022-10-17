@@ -21,7 +21,7 @@ if git.found()
 	endif
 endif
 
-libtokyo = dependency('tokyo-gtk3', required: false)
+libtokyo = dependency('tokyo-gtk3', fallback: ['libtokyo', 'libtokyo_gtk3_dep'], required: false)
 if not libtokyo.found()
   libtokyo_subproject = subproject('libtokyo')
   libtokyo = libtokyo_subproject.get_variable('libtokyo_gtk3_dep')
