@@ -1,43 +1,23 @@
 {
   "nodes": {
     "expidus-sdk": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
       "locked": {
-        "lastModified": 1665898324,
-        "narHash": "sha256-Q96DGcZsCnyhj7BW4jX2Ll4eInAKzhWQzZ9nhN9oork=",
+        "lastModified": 1666022729,
+        "narHash": "sha256-Afk6unrXGo/gNycJfCndSKZ+oPjO2WHbfCMw/tJWY8s=",
         "owner": "ExpidusOS",
         "repo": "sdk",
-        "rev": "ead98e726e68a2eaadf5ecc9719d1b634e76d958",
+        "rev": "2cfc668d6d62bc72c15a77efa0ce0eca3e6a0856",
         "type": "github"
       },
       "original": {
         "owner": "ExpidusOS",
         "repo": "sdk",
         "type": "github"
-      }
-    },
-    "nixpkgs": {
-      "locked": {
-        "lastModified": 1665830552,
-        "narHash": "sha256-qel2bZ9TqfW8WzWCWdjuCy4bVFhhGsEeqFv/bj1ka2s=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "26b7e6ab6a864c3e7e077bcb27a49f0480b9894a",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
       }
     },
     "root": {
       "inputs": {
-        "expidus-sdk": "expidus-sdk",
-        "nixpkgs": "nixpkgs"
+        "expidus-sdk": "expidus-sdk"
       }
     }
   },
