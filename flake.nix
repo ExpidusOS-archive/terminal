@@ -5,5 +5,10 @@
     url = github:ExpidusOS/sdk;
   };
 
-  outputs = { self, expidus-sdk }: expidus-sdk.libExpidus.mkFlake { inherit self; name = "expidus-terminal"; };
+  outputs = { self, expidus-sdk }:
+    with expidus-sdk.lib;
+    expidus.flake.makeOverride {
+      inherit self;
+      name = "expidus-terminal";
+    };
 }
